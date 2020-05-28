@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <title>Petit Bac Test</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<div style="display:flex;justify-content: space-between;">
+<div style="width:40%">
+    <!--Nom Joueur-->
+<label for="pseudo">Votre Pseudo</label>
+<input type="text" maxlength="30" id="pseudo"/>
+<button id="bps">Valider</button>
+<div id="disp" style="display:none">
+<!--Stat Joueur-->
+<br>Score : <span id="score">0</span> en <span id="nbp">0</span> partie(s), soit <span id="moy">0</span>% de bonnes réponses avec <span id="ea">0</span> point(s) en attente.<br>
+<!--Lettre et Thème-->
+<h2>Lettre : <span id="lettre"></span></h2>
+<h2>Thème : <span id="theme"></span></h2>
+<h2 id="AffRes" style="display:none">Résultat : <span id="res"></span></h2>
+<!--Proposition -->
+<input type="text" id="prop" placeholder="mot à proposer"><span id="pc" style="display:none"><input id="nom" style="width:300px" placeholder="Nom de Famille ou Nom seul si pas de prénom" type="text"><input id="prenom" placeholder="prénom" type="text"></span>
+<div id="ehc">
+    <input type="text" id="type" placeholder="type d'événement" readOnly>
+        <input type="text" id="jonction" style="width:100px" placeholder="de, de le, d', ...">
+        <input type="text" id="eh" placeholder="nom de l'événement"><br>
+        <select>
+            <option value="Aucun">Aucun</option>
+            <option value="Autre">Autre</option>
+            <option value="Bataille">Bataille</option>
+            <option value="Guerre">Guerre</option>
+            <option value="Guerre de Succession">Guerre de Succession</option>
+            <option value="Traité">Traité</option>
+        </select>
+</div>
+<span id="OA"><input type="text" id="article" placeholder="Le, la, ..."><input id="oeuvre" type="text" placeholder="nom de l'oeuvre"></span>
+<span id="lb"><button id="b">Valider</button><button id="abandon">Passer au Suivant</button></span><button id="suivant" style="display:none">Suivant</button><br>
+<span id="spanajout" style="display:none">Si vous pensez que votre mot est bon : <button id="ajout">Cliquez Ici</button></span>
+</div>
+
+</div>
+<div style="width:55%">
+<div id="classement"></div>
+<button id="bcl">Voir Classement</button>
+
+<h3>Règles et Bonnes Pratiques</h3>
+<p>L'objectif de ce jeu est de trouver un mot commençant par la lettre et correspondant au thème proposé. Si vous ne trouvez pas, vous pouvez passer au suivant.</p>
+<p>Attention : l'orthographe est importante.</p>
+<p>Cas particulier :</p>
+<ol>
+    <li>Nom Propre (Ville, ...) : si il y a É ou une autre lettre accentuée en début de mot, mettez une minuscule accentuée.</li>
+    <li>Personnage Célébre : il y a deux cases à remplir comme suit :
+        <ul>
+            <li>Nom et Prénom : C'est simple, en premier le nom puis le prénom dans la seconde case.</li>
+            <li>Nom seul ou pseudo : Remplir uniquement la première case.</li>
+            <li>Nom suivi d'un le, la, d', de, ... : Remplir uniquement la première case, en mettant comme suit l'article en minuscule et le qualificatif commençant par une majuscule : Guillaume le Conquérant.</li>
+        </ul>
+    </li>
+    <li>Evénement Historique : il y a trois cases à remplir :
+        <ol>
+            <li>La première est le type de l'événement si il rentre dans le nom comme 'Bataille' pour Bataille de Marigan mais pour reconquista, il faut mettre aucun.</li>
+            <li>La seconde sert à indiquer la jonction entre le type et le nom : le 'de' de Bataille de Marignan.</li>
+            <li>La troisième sert à donner le nom de l'événement.</li>
+        </ol>
+    </li>
+    <li>Oeuvre d'Art : l'article (le pour le Penseur) et le nom de l'oeuvre(livre, cinéma, peinture, série, ...).</li>
+</ol>
+</div>
+</div>
+<script src="jquery-3.3.1.js"></script>
+<script src="pseudo.js"></script>
+<script src="init.js"></script>
+<script src="outil.js"></script>
+<script src="verification.js"></script>
+<script src="bdd.js"></script>
+</body>
+</html>
